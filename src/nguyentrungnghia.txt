@@ -1,0 +1,125 @@
+Câu 1: Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây tại local
+	touch c1.txt
+	git add .
+	git commit -m "Tạo file c1.txt"
+	touch c2.txt
+	git add .
+	git commit -m "Tạo file c2.txt"
+	touch c3.txt
+	git add .
+	git commit -m "Tạo file c3.txt"
+	git checkout -b feature master
+	touch c4.txt
+	git add .
+	git commit -m "Tạo file c4.txt"
+	touch c5.txt
+	git add . 
+	git commit -m "Tạo file c5.txt"
+	git checkout -b bug master
+	touch c6.txt
+	git add .
+	git commit -m "Tạo file c6.txt"
+	touch c7.txt
+	git add . 
+	git commit -m "Tạo file c7.txt"
+	touch c8.txt
+	git add . 
+	git commit -m "Tạo file c8.txt"
+
+Câu 2: Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+	git checkout feature
+	git merge bug
+
+Câu 3: Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+	git checkout bug
+	git rebase feature
+
+Câu 4: Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	GIỐNG: 
+		_ Kết quả sẽ lưu vào nhánh cần gộp
+		_ Hai nhánh có quan hệ cha con thì merge và rebase sẽ giống nhau
+	KHÁC: 2 nhánh có quan hệ rẽ nhánh
+		MERGE: sử dụng khi gộp 2 nhánh của dự án có nhiều commits 
+			+ Tạo commit merge
+			+ Gộp 2 commits mới nhất của 2 nhánh (Xét từ điểm cha chung)
+			+ Fix conflicts 1 lần duy nhất
+		REBASE: sử dụng khi push code từ local lên remote bị reject
+			+ Không tạo commit merge
+			+ Gộp từng commit của target branch vào commit mới nhất của base branch
+			+ Có thể fix conflict nhiều lần 
+
+Câu 5: Phân biệt git fetch và git clone
+	_ "git fetch": đồng bộ code mới nhất từ remote branches về nhánh trung gian ở local
+	_ "git clone": sao chép toàn bộ .git ở remote repo về local repo
+
+Câu 6: Phân biệt git fetch và git pull
+	_ "git fetch": đồng bộ code mới nhất từ remote branches về nhánh trung gian ở local
+	_ "git pull": gộp nhánh ở remote branch về nhánh của mình ở local
+
+Câu 7: Phân biệt git pull và git pull --rebase
+	_ git pull = git fetch -> git merge
+	_ git pull --rebase = git fetch -> git rebase
+
+Câu 8: Git log dùng để làm gì
+	Hiển thị các commit (chỉ hiển thị commit mà HEAD đang trỏ đến và những commit cha của nó) 
+
+Câu 9: Git status dùng để làm gì
+	Hiển thị trạng thái của file (chỉ hiện file ở trạng thái Untracked, Modified, Staged)
+
+Câu 10: Git add dùng để làm gì
+	Chuyển file từ trạng thái Untracked/Modified sang trạng thái Staged
+
+Câu 11: Git commit dùng để làm gì
+	Chuyển file từ trạng thái Staged sang trạng thái Unmodified
+
+Câu 12: Mô tả lệnh để tạo branch ở local
+	_ Tạo branch từ commit hash:
+		git branch <new_branch_name> <commit_hash>
+	_ Tạo branch từ existed branch:
+		git branch <new_branch_name> <existed_branch_name>
+
+Câu 13: Mô tả lệnh để xóa branch ở local
+	git branch -d <branch_name>
+
+Câu 14: Mô tả lệnh để xóa branch ở remote
+	git push <remote_alias> <remote_branch_name> -d
+
+Câu 15: Nhánh trung gian là gì
+	_Nhánh trung gian là nhánh được đồng bộ từ nhánh ở remote repo về local repo
+	_ Nhánh trung gian chỉ đọc, không thể đưa HEAD trỏ đến nhánh trung gian
+
+Câu 16: Detach HEAD là gì
+	HEAD trỏ đến commit
+
+Câu 17: Phân biệt HEAD và BRANCH
+	GIỐNG: đều là con trỏ
+	KHÁC: 
+		_ HEAD có thể trỏ đến commit và branch, BRANCH chỉ trỏ đến commit
+		_ Khi HEAD trỏ đến BRANCH, BRANCH trỏ đến commit, khi commit 1 cái mới thì BRANCH sẽ nhảy lên
+		_ Khi HEAD và BRANCH đều trỏ đến commit, khi commit 1 cái mới thì HEAD sẽ nhảy lên
+
+Câu 18: Có mấy cách để xóa commit, mô tả và cho ví dụ
+	Có 2 cách để xoá commit:
+		_ Xoá commit giữ lại nội dung:
+			git reset --soft HEAD~x
+				x: là số commit muốn xoá kể từ HEAD
+		_ Xoá commit xoá luôn nội dung:
+			git reset --hard HEAD~x
+				x: là số commit muốn xoá kể từ HEAD
+
+Câu 19: Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+	Có 4 trạng thái của file trong git:
+		_ Untracked: file chưa được theo dõi bởi git
+		_ Unmodified: file đã được theo dõi bởi git
+		_ Modified: file đã được theo dõi bởi git, và được chỉnh sửa nội dung
+		_ Staged: file ở trạng thái chờ để được commit
+
+Câu 20: Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+	_ Cần xác định file ở version nào của dự án -> Xác định được branch nào ở remote
+	_ git fetch [remote_alias] [remote_branch_name]
+	_ Tạo 1 nhánh(nhánh làm task) từ nhánh trung gian 
+	_ git checkout <branch_name>
+	_ Tạo file -> code -> test -> add -> commit
+	_ git push <remote_alias> <local_branch_name>:<remote_branch_name>
+		  
+		
