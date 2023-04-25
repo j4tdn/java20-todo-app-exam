@@ -1,0 +1,143 @@
+1. Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây
+tại local
+
+	b1: touch c1.txt
+	b2: git add c1.txt
+	b3: git commit -m "Commit 1"
+	b4: touch c2.txt
+	b5: git add c2.txt
+	b6: git commit -m "Commit 2"
+	b7: touch c3.txt
+	b8: git add c3.txt
+	b9: git commit -m "Commit 3"
+	b10:git branch feature master
+	b11: git checkout feature
+	b12: touch c4.txt
+	b13: git add c4.txt
+	b14: git commit -m "Commit 4"
+	b15: touch c5.txt
+	b16: git add c5.txt
+	b17: git commit -m "Commit 5"
+	b18: git branch bug master
+	b19: git checkout bug
+	b20: touch c6.txt
+	b21: git add c6.txt
+	b22: git commit -m "Commi 6"
+	b23: touch c7.txt
+	b24: git add c7.txt
+	b25: git commit -m "Commit 7"
+	b26: touch c8.txt
+	b27: git add c8.txt
+	b28: git commit -m "Commit 8"
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+
+	b1: git checkout bug
+	b2: git merge feature
+
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+
+	b1: git checkout feature
+	b2: git rebase bug 
+
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	
+	giống nhau: gộp nhánh
+
+	khác nhau : 
+	Merge: Tạo commit mới
+     		Gộp 2 commits mới nhất từ 2 nhánh và so sánh từ cha
+     		Fix 1 lần duy nhất nếu bị conflict
+	   	 Tạo commit mới
+	Rebase: Không tạo commit mới
+    	 Replay your work(nhánh cần gộp vào) on top of base-branch
+	khi nào sử dụng merge, rebase: 
+	 Khi gộp 2 nhánh của dự án chứa rất nhiều commit
+	===>Sử dụng merge
+		Tránh fix conflict nhiều lần
+		Xuất hiện history merge branch via commit dễ quản lý
+		Biết được 2 nhánh đã gộp rồi, tránh gộp lại
+
+
+		Khi push code bị reject thì phải đồng bộ code trên remote về
+			nhánh trung gian
+		Sau đó git rebase nhánh hiện tại với nhánh trung gian để không tạo
+		ra commit merge, push lên lại làm xấu remote tree
+	===> Sử dụng rebase
+
+5. Phân biệt git fetch và git clone
+ 	git fetch: 
+      + yêu cầu: phải có local repo và remote repo --> liên kết/ánh xạ
+
+	git clone:  + REMOTE:  đã có code hiện tại
+ 		      + LOCAL : ==> nothing
+            ==> clone: copy/lấy toàn bộ (.git) ở remote về local
+
+6. Phân biệt git fetch và git pull
+
+	git fetch và git pull đều là lấy code ở remote về local 
+	git pull là gộp code vừa lấy ở remote với code hiện tại ở local mà không cần thông qua lệnh git rebase
+
+8. Git log dùng để làm gì
+
+	git log : show version của dự án
+
+9. Git status dùng để làm gì
+	 git status : show thay đổi của mình, so sánh với nhánh tracking ở remote
+
+10. Git add dùng để làm gì
+	
+	git add:  add các file vào trạng thái staged
+
+11. Git commit dùng để làm gì
+	
+	git commit: + khi thực hiện commit là GIT sẽ commit những file mình muốn lưu/ đưa vào version
+
+12. Mô tả lệnh để tạo branch ở local
+
+	có 2 cách để tạo ra BRANCH
+          + Cách 1: Tạo branch từ commit
+            --> git branch new_branch_name commit_hash
+            
+          + Cách 2: Tạo branch từ existed branch
+            * existed_branch_name trỏ đến commit là abcxyz
+            --> git branch new_branch_name existed_branch_name
+            * sẽ tạo branch tên là new_branch_name trỏ đến commit abcxy
+
+13. Mô tả lệnh để xóa branch ở local
+
+	git branch -D branch_name
+
+14. Mô tả lệnh để xóa branch ở remote
+
+	git push origin --delete branch_name_remote
+
+15. Nhánh trung gian là gì
+
+	khi chúng ta fetch là lấy code từ remote về local cụ thể là đồng bộ
+	code mới nhất về local thì nhánh đó được gọi là nhánh trung gian 
+	nhánh trung gian: readable (chỉ xem), ko thể đưa HEAD qua nhánh trung gian
+                                 --> đồng bộ code mới nhất ở remote về local
+
+16. Detach HEAD là gì
+
+ 	detach HEAD là khi head không ở một branch cụ thể nào.
+
+17. Phân biệt HEAD và BRANCH
+
+	HEAD: HEAD là chỉ nơi làm việc hiện tại của dự án 
+	
+	BRANCH: BRANCH là một nhánh hay thường được gọi là 1 version của dự án 
+
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+
+	có 4 trạng thái trong file git: 1. Untracked
+	2. unmodified
+	3.modified
+	4.staged
+
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+
+ 	B1: mình nhận task xác nhận task thuộc version nào của dự án 
+	b2: nếu ở local đã có local repo thì fetch dự án của task đó về và làm dự án
+	

@@ -1,0 +1,110 @@
+1. Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây
+tại local
+touch c1.txt
+git add c1.txt
+git commit -m "version 1"
+
+touch c2.txt
+git add c2.txt
+git commit -m "version 2"
+
+touch c3.txt
+git add c3.txt
+git commit -m "version 3"
+
+git  branch feature master
+git checkout feaure
+touch c4.txt
+git add c4.txt
+git commit -m "version 4"
+
+touch c5.txt
+git add c5.txt
+git commit -m "version 5"
+
+git checkout master
+git  branch bug master
+touch c6.txt
+git add c6.txt
+git commit -m "version 6"
+
+touch c7.txt
+git add c7.txt
+git commit -m "version 7"
+
+touch c8.txt
+git add c8.txt
+git commit -m "version 8"
+
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+git checkout feature
+git merge bug
+
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+git checkout bug
+git rebase feature
+
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+giống điều gọp commit
+khác merge tạo ra commit mới  còn rebase thì không tạo commit mới khi push
+
+5. Phân biệt git fetch và git clone
+git fetch là lấy những commit mới nhất trên remote
+git clone đồng bộ kho trên remote xuống local
+
+6. Phân biệt git fetch và git pull
+Git fetch: Lấy dữ liệu từ repository khác và cập nhật các tham chiếu (reference) trong repository hiện tại, nhưng không thay đổi bất kỳ thứ gì trong thư mục làm việc của bạn
+Git pull: Tải về các thay đổi mới nhất từ repository khác và đồng thời cập nhật các tham chiếu trong repository hiện tại
+
+7. Phân biệt git pull và git pull --rebase
+8. Git log dùng để làm gì
+ để hiển thị lịch sử commit trên một repository.
+
+9. Git status dùng để làm gì
+show ra các file ở trạng thái nào
+10. Git add dùng để làm gì
+ được sử dụng để đưa các tệp tin đã sửa đổi hoặc mới được thêm vào repository vào trạng thái staged
+11. Git commit dùng để làm gì
+sau khi thực hiện  xong 1 chức năng,lưu trữ các thay đổi đã được đưa vào trạng thái staged
+12. Mô tả lệnh để tạo branch ở local
+ git branch <branch_name>.
+13. Mô tả lệnh để xóa branch ở local
+branch -d hoặc git branch -D
+
+14. Mô tả lệnh để xóa branch ở remote
+git push origin --delete my-branch
+
+15. Nhánh trung gian là gì
+là một nhánh được tạo ra để giải quyết xung đột giữa hai nhánh khác
+
+16. Detach HEAD là gì
+là trạng thái khi HEAD (con trỏ đến commit hiện tại) không được liên kết với một nhánh cụ thể
+17. Phân biệt HEAD và BRANCH
+HEAD là con trỏ đến commit hiện tại trong repository
+BRANCH làm một nhánh Nhánh được sử dụng để phát triển và quản lý các tính năng và phiên bản khác nhau của một repository
+
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+có nhiều cách để xóa commit 
+Ví dụ: Giả sử bạn muốn xóa hai commit cuối cùng trên nhánh hiện tại của mình. Bạn có thể làm như sau:
+git reset --hard HEAD~2
+
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+Trạng thái của file --> dùng lệnh git status -> show untracked, staged, modified
++ Untracked : Chưa được quản lý/quan tâm bởi GIT
+            : Chỉ là 1 file bình thường trên máy 
+
++ Staged    : Chứa những file sẽ được commit trong lần tiếp theo
++ Unmodified: Chứa những file đã được quản lý/lưu trữ trong CSDL của GIT 
++ Modified  : Chứa những file(đã từng được commit) được thay đổi từ
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+tạo branch mới
+Làm việc trên branch mới
+tạo file, code, add
+Khi bạn hoàn thành một phần của task, bạn cần commit
+Push branch lên repository
+
+
+
+
+ 
