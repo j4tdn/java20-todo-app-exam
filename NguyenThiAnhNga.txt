@@ -1,0 +1,139 @@
+1.Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây
+tại local
+git int 
+touch C1.txt
+notepad C1.txt
+git add C1.txt
+git commit -m "Add file C1"
+
+touch C2.txt
+notepad C2.txt
+git add C2.txt
+git commit -m "Add file C2"
+
+touch C3.txt
+notepad C3.txt
+git add C3.txt
+git commit -m "Add file C3"
+
+git branch feature master
+git checkout feature
+touch C4.txt
+notepad C4.txt
+git add C4.txt
+git commit -m "Add file C4"
+
+touch C5.txt
+notepad C5.txt
+git add C5.txt
+git commit -m "Add file C5"
+
+git branch bug master
+git checkout bug
+touch C6.txt
+notepad C6.txt
+git add C6.txt
+git commit -m "Add file C6"
+
+touch C7.txt
+notepad C7.txt
+git add C7.txt
+git commit -m "Add file C7"
+
+touch C8.txt
+notepad C8.txt
+git add C8.txt
+git commit -m "Add file C8"
+
+2.Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+ git checkout feature
+git merge bug
+
+3.Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+git checkout bug
+git rebase feature
+
+4`.Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+Giống nhau : sử dụng gộp nhánh
+Khác nhau:
+ git merge : tạo thêm 1 commit mới. Nên sử dụng khi gộp nhánh chứa nhiều commit
+git rebase : không tạo thêm commit mới.Nên sử dụng khi push code lên remote bị reject thì fetch về local và sử dụng rebase để gộp
+
+
+5.Phân biệt git fetch và git clone
+git clone: sử dụng khi ở remote resp đã có kho chứa còn ở local resp thì chưa.
+	copy toàn bộ .git ở remote về local
+git fetch:  sử dụng khi ở remote resp và local resp đã có kho chứa
+	Yêu cầu local và remote phải có ánh xạ với nhau
+ 
+6.Phân biệt git fetch và git pull
+git fetch: đồng bộ nhánh mới nhất từ remote branch về nhánh trung gian
+git pull: 
+
+7.Phân biệt git pull và git pull --rebase
+git pull: 
+ git pull --rebase: đồng bộ code ở remote về local đồng thời gộp các nhánh trung gian vào nhánh head đang trỏ đến
+
+8.Git log dùng để làm gì
+Git log: show ra những version của dự án
+
+9.Git status dùng để làm gì
+git status: xem tráng thái của file
+
+10.Git add dùng để làm gì
+git add:thêm chắc năng vào trước khi commit
+
+11.Git commit dùng để làm gì
+ git commit: Dùng để thêm chức năng cho version 
+
+12.Mô tả lệnh để tạo branch ở local
+	git branch new-branch exsited-branch 
+	git branch new-branch commit-hashing
+13.Mô tả lệnh để xóa branch ở local
+	git branch  -D tennhanh
+14.Mô tả lệnh để xóa branch ở remote
+	git branch -d 
+
+15. Nhánh trung gian là gì
+	Nhánh trung gian là nhánh lưu trữ code khi được đồng bộ từ remote repo.
+	Readable, Head không trỏ đến được.
+
+16. Detach HEAD là gì
+
+17.Phân biệt HEAD và BRANCH
+HEAD:
+-Là con trỏ đến thư mục làm việc. 
+-Là con trỏ đặc biệt trong git.
+-Head có thể trỏ đến nhánh và commit
+-Có thể di chuyển bất kì đến nhánh hoặc commit nào bằng lệnh checkout
+
+Branch:
+-Là con trỏ có thể trỏ đến commit trong git.
+-Khi head trỏ đến Branch, khi commit thì Head vẫn trỏ đến Branch đó và nhảy đến commit con
+
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+Xóa commit không giữ lại nội dung: git reset --hard~1
+Xóa commit giữ lại nội dung: git reset --soft~1
+
+19.Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+unmodifited
+modifile 
+stage
+untracked
+20.
+Xem ở version nào,nhánh nào
+git fetch 
+git branch
+git checkout 
+git status
+notepad 
+git add
+git commit
+git push
+
+
+
+
+
+
+
