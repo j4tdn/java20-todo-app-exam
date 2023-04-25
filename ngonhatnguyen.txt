@@ -1,0 +1,112 @@
+1. Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây
+tại local.
+	git init
+	
+	touch c1.txt
+	git add c1.txt
+	git commit -m "Add file c1.txt"
+	
+	touch c2.txt
+	git add c2.txt
+	git commit -m "Add file c2.txt"
+	
+	touch c3.txt
+	git add c3.txt
+	git commit -m "Add file c3.txt"
+	
+	git branch feature master
+	git checkout feature
+	touch c4.txt
+	git add c4.txt
+	git commit -m "Add file c4.txt"
+	
+	touch c5.txt
+	git add c5.txt
+	git commit -m "Add file c5.txt"
+	
+	git branch bug master
+	git checkout bug
+	touch c6.txt
+	git add c6.txt
+	git commit -m "Add file c6.txt"
+	
+	touch c7.txt
+	git add c7.txt
+	git commit -m "Add file c7.txt"
+	
+	touch c8.txt
+	git add c8.txt
+	git commit -m "Add file c8.txt"
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+	git checkout feature
+	git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+	git checkout bug
+	git rebase feature
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	- Giống nhau: + Gộp nhánh.
+				  + Kết quả trường hợp gộp nhánh trên 1 đường thẳng giống nhau.
+	- Khác nhau:
+		+ git merge:  Tạo commit mới
+					  Khi bị comflicts chỉ fix 1 lần
+		+ git rebase: Không cần tạo commit mới
+					  Khi bị comflicts có thể cần phải fix nhiều lần
+5. Phân biệt git fetch và git clone
+	- git fetch:	dùng để lấy dữ liệu trên remote về khi đã ánh xạ
+	- git clone:	dùng khi trên local chưa ánh xạ với remote, khi dùng sẽ đồng thời lấy dữ liệu trên remote về máy local.
+6. Phân biệt git fetch và git pull
+	git fetch: + lấy dữ liệu mới nhất từ remote repos
+	git pull:  + lấy dữ liệu mới nhất từ remote repos và merge nhánh vào nhánh HEAD đang trỏ đến
+7. Phân biệt git pull và git pull --rebase
+	git pull:  + lấy dữ liệu mới nhất từ remote repos và gộp nhánh bằng lệnh merge nhánh vào nhánh HEAD đang trỏ đến
+	git pull --rebase:  + lấy dữ liệu mới nhất từ remote repos và gộp nhánh bằng lệnh rebase nhánh vào nhánh HEAD đang trỏ đến
+8. Git log dùng để làm gì
+	git log dùng để hiển thị các commit (git version) của nhánh (version) hiện tại mà HEAD đang trỏ đến.
+9. Git status dùng để làm gì
+	git status dùng để xem trạng thái hiện tại của các file trong thư mục làm việc
+10. Git add dùng để làm gì
+	dùng để add các file ở trạng thái untracked và modified --> trạng thái stage chuẩn bị commit.
+11. Git commit dùng để làm gì
+	dùng để quản lý các file sau khi add trong trạng thái stage
+12. Mô tả lệnh để tạo branch ở local
+	git branch new_branch old_branch
+	git branch new_branch hash_code
+13. Mô tả lệnh để xóa branch ở local
+	Nếu HEAD đang trỏ đến branch muốn xóa --> checkout HEAD đến 1 branch khác
+	 -> git branch -d branch_name
+14. Mô tả lệnh để xóa branch ở remote
+	  git push origin ten_nhanh -d
+15. Nhánh trung gian là gì
+	  là nhánh ở máy local sau khi fetch từ remote và đại diện cho nhánh trên remote
+	  không được trỏ đến nhánh trung gian
+16. Detach HEAD là gì
+	   Là HEAD đang trỏ đến 1 commit mà commit đó không được nhánh nào quản lý.
+17. Phân biệt HEAD và BRANCH
+	- HEAD:		+ Là con trỏ git có thể trỏ đến 1 commit hay 1 branch nào đó
+				+ HEAD --> branch --> commit (khi HEAD nhảy sang commit mới --> branch cũng sẽ nhảy lên trỏ vào commit mới đó)
+	- BRANCH:	+ Là con trỏ git chỉ trỏ đến 1 commit nào đó
+				+ Đại diện cho 1 project version
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+	Có 2 cách để xóa commit:
+		Khi xóa 1 commit thì commit đó không phải là commit cha của bất kì 1 commit nào khác
+		C1: Xóa commit xóa luôn nội dung:
+			git reset --hard HEAD~x
+		C2: Xóa commit không xóa nội dung:
+			git reset --soft HEAD~x
+		với x là số commit tính từ HEAD trở về trước
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+	- Có 4 trạng thái của file trong git:
+		+ untracked  : trạng thái khi file chưa được commit lần nào (hay chưa được git quản lý)
+		+ stage      : trạng thái sau khi file được add, khi file ở trạng thái này có thể được commit
+		+ modified   : trạng thái khi file đã được git quản lý trước đó và mới được chỉnh sửa
+		+ unmodified : trạng thái khi file đã được commit
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+	B1: git clone url (nếu chưa ánh xạ remote và local)
+   hoặc git fetch
+	B2: Tạo 1 nhánh tại local từ nhánh trung gian quản lý version mà task nằm ở đó.
+	  VD: task sum3 thuộc version todo-app-1.0
+	   --> git branch task_sum3 origin/todo-app-1.0
+	B3: tạo file chứa code của task đó
+	B4: git add file --> git commit -m "Add task"
+	B5: git push origin nhánh_tại_local:nhánh_version
+	  VD: git push origin task_sum3:todo-app-1.0
