@@ -1,0 +1,155 @@
+Bài 1. Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây
+tại local
+		git init
+		touch c1.txt
+		git add c1.txt
+		git commit -m "Add file c1"
+		
+		touch c2.txt
+		git add c2.txt
+		git commit -m "Add file c2"
+		
+		touch c3.txt
+		git add c3.txt
+		git commit -m "Add file c3"
+		
+		git branch feature master
+		git checkout feature
+		
+		touch c4.txt
+		git add c4.txt
+		git commit -m "Add file c4"
+		
+		touch c5.txt
+		git add c5.txt
+		git commit -m "Add file c5"
+		
+		git branch bug master
+		git checkout bug
+		
+		touch c6.txt
+		git add c6.txt
+		git commit -m "Add file c6"
+		
+		touch c7.txt
+		git add c7.txt
+		git commit -m "Add file c7"
+
+		touch c8.txt
+		git add c8.txt
+		git commit -m "Add file c8"
+
+Bài 2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+		git checkout feature
+		git merge bug
+
+Bài 3: Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+		git checkout bug
+		git rebase feature
+
+Bài 4: Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	*Giống: 
+		+ Đều dùng để gộp nhánh
+		+ Khi gộp 2 nhánh trên một đường thẳng thì ra kết quả giống nhau
+	*Khác:
+		- git merge:
+			+ Luôn tạo ra commit mới là commit merge
+			+ Fix 1 lần duy nhất nếu bị conflict
+		- git rebase:
+			+ Không tạo commit mới
+			+ Fix nhiều lầnneeus bị conflict
+	*Sử dụng:
+		- git merge sử dụng khi:
+			+ Trong dự án chứa nhiều commit
+			+ Tránh fix conflict nhiều lần
+			+ Tạo ra commit merge dễ quản lý 
+		- git rebase sử dụng khi:
+			+ Gộp nhánh chứa ít commit
+			+ Tránh sinh ra nhiều commit merge làm khó quản lý
+
+Bài 5: Phân biệt git fetch và git clone
+	- git fetch: là lệnh dùng để lấy commit mới nhất từ remote
+	- git clone: là lệnh để lấy commit từ remote về local
+
+Bài 6: Phân biệt git fetch và git pull
+	- git fetch: lệnh dùng để lấy commit mới nhất từ remote
+	- git pull: lệnh gộp nhánh từ remote với nhánh local
+
+Bài 7: Phân biệt git pull và git pull --rebase
+	- git pull: là lệnh rút gọn khi sử dụng 2 lệnh git fetch -> git merge 
+	- git pull --rebase: là lệnh rút gọn khi sử dụng 2 lệnh git fetch -> git rebase
+
+Bài 8: Git log dùng để làm gì
+	-> git log dùng để hiển thị ra lịch sử commit
+
+Bài 9: Git status dùng để làm gì 
+	-> git status dùng để hiển thị trạng thái của file
+
+Bài 10: Git add dùng để làm gì
+	-> git add dùng để đưa 1 hoặc nhiều file từ trạng thái untracked về trạng thái staged
+và các file ở trạng thái staged sẽ dùng để commit trong lần commit tiếp theo
+
+Bài 11: Git commit dùng để làm gì
+	-> git commit dùng để thêm một hoặc nhiều chứa năng cho project
+
+Bài 12: Mô tả lệnh để tạo branch ở local
+	-> git branch branch_mới branch_cũ (tạo branch_mới bắt đầu từ commit cuối cùng trong branch_cũ)
+
+Bài 13: Mô tả lệnh để xóa branch ở local
+	git branch -d tennhanh
+
+Bài 14: Mô tả lệnh để xóa branch ở remote
+	git push origin tennhanh -d
+
+Bài 15: Nhánh trung gian là gì
+	->Khi mình clone về máy thì sẽ xuất hiện nhánh trung gian
+
+Bài 16. Detach HEAD là gì
+
+
+Bài 17. Phân biệt HEAD và BRANCH
+	- HEAD: 
+		+ có thể trỏ đến 1 commit hoặc 1 branch
+		+ quản lý được thư mục làm việc của 1 commit khi HEAD trỏ đến
+
+	- BRANCH: 
+		+ chỉ trỏ đến commit
+		+ quản lý một version của dự án
+		+ dùng khi bắt đầu một version
+
+Bài 18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+	-> Có 3 cách: 	git reset --hard HEAD~n
+				git reset --soft HEAD~n
+				git reset commit_hash
+
+Bài 19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+	- Untracked: Khi file vừa được tạo hoặc file bị xóa
+	- UnModified: Khi file được commit
+	- Modified: Khi file vừa được sửa 
+	- Staged: Khi file được git add
+
+Bài 20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+	- Xác định version của task đó (ví dụ: todo-app-4.0)
+	- clone về local (git clone https://github.com/j4tdn/java20-todo-app-exam)
+	- Vào folder làm việc (cd java20-todo-app-exam)
+	- Tạo một nhánh bắt đầu từ nhánh trung gian của version được xác định (git branch nhanh-local origin/todo-app-4.0)
+	- Thực hiện các commit của task được nhận
+	- Push nhánh local lên remote
+	- Khi push bị rejected thì git fetch và thực hiện gộp nhánh sau đó push lại
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
