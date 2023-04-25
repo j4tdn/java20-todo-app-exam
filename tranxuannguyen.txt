@@ -1,0 +1,88 @@
+1. Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây tại local
+
+touch c1.txt
+git add c1.txt
+git commit -m "commit 1"
+touch c2.txt
+git add c2.txt
+git commit -m "commit 2"
+touch c3.txt
+git add c3.txt
+git commit -m "commit 3"
+git branch feature master
+git checkout feature
+touch c4.txt
+git add c4.txt
+git commit -m "commit 4"
+touch c5.txt
+git add c5.txt
+git commit -m "commit 5"
+git branch bug master
+git checkout bug
+touch c6.txt
+git add c6.txt
+git commit -m "commit 6"
+touch c7.txt
+git add c7.txt
+git commit -m "commit 7"
+touch c8.txt
+git add c8.txt
+git commit -m "commit 8"
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+
+git chekout feature
+git merge bug 
+
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+
+git chekout bug
+git rebase feature
+
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+
+giống: -đều để gộp 2 nhánh
+khác:
+merge: -tạo commit mới khi gộp
+ 	 - fix 1 lần nếu bị conflict
+rebase: -không tạo commit mới khi gộp
+	  - fix nhiều lần nếu bị conflict
+khi nào nên sử dụng:
+- gộp 2 nhanh chứa nhiều commit -> dùng merge
+- tránh conflict nhiều lần -> dùng merge
+
+5. Phân biệt git fetch và git clone
+
+git fetch thì chỉ lấy các thay đổi từ remote về local có sẵn
+git clone vừa lấy các dữ liệu từ remote về vừa tạo sẵn 1 local
+ 
+6. Phân biệt git fetch và git pull
+
+Git fetch khác với git pull, vì nó chỉ lấy về các thay đổi từ 
+remote repository mà không thực hiện việc merge.
+
+7. Phân biệt git pull và git pull --rebase
+
+git pull là sự kết hợp giữa git fetch và git merge
+git pull --rebase giúp hợp nhất remote branch với local branch nhanh chóng.
+
+8. Git log dùng để làm gì
+
+xem thông tin lịch sử commit
+
+9. Git status dùng để làm gì
+
+dùng để biết trạng thái các file trong thư mục làm việc
+
+10. Git add dùng để làm gì
+
+dùng để add file vào trạng thái đợi commit
+
+11. Git commit dùng để làm gì
+
+thêm file
+
+12. Mô tả lệnh để tạo branch ở local
+-git branch name_branch_new commit_hash
+-git branch name_branch-new [tên branch khác]
+
