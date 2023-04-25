@@ -1,0 +1,4 @@
+public void KT_SOLE(int so) {
+if(so%2!=0)
+println("so le");
+}
