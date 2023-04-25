@@ -1,0 +1,89 @@
+1.Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây
+tại local
+git init
+touch c1.txt
+notepad c1.txt
+git add c1.txt
+git commit -m "Add c1.txt file"
+
+touch c2.txt
+notepad c2.txt
+git add c2.txt
+git commit -m "Add c2.txt file"
+
+touch c3.txt
+notepad c3.txt
+git add c3.txt
+git commit -m "Add c3.txt file"
+
+git branch feature master
+git checkout feature
+
+touch c4.txt
+notepad c4.txt
+git add c4.txt
+git commit -m "Add c4.txt file"
+
+touch c5.txt
+notepad c5.txt
+git add c5.txt
+git commit -m "Add c5.txt file"
+
+git branch bug master
+git checkout bug
+
+touch c6.txt
+notepad c6.txt
+git add c6.txt
+git commit -m "Add c6.txt file"
+
+touch c7.txt
+notepad c7.txt
+git add c7.txt
+git commit -m "Add c7.txt file"
+
+touch c8.txt
+notepad c8.txt
+git add c8.txt
+git commit -m "Add c8.txt file"
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+git status
+mo file va sua
+git add ...
+git commit -m "Gop ... vao ..."
+
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+git status
+mo file va sua
+git add ...
+git rebase --continue
+
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+Giống nhau: Được kết quả như nhau
+Khác nhau: 
++ merge: 1 lần gộp
++ rebase: gộp nhiều lần
+
+5. Phân biệt git fetch và git clone
+git fetch: đã cập nhật lại version mới nhất 
+git clone: copy lấy toàn bộ .git ở remote về local
+
+9. Git status dùng để làm gì
+Dùng để xem trang thái của các commit 
+
+11. Git commit dùng để làm gì
+Dùng để thêm một chức năng cho version
+
+12. Mô tả lệnh để tạo branch ở local
+git branch new_branch from_branch
+
+14. Mô tả lệnh để xóa branch ở remote
+git push origin todo-appp-1.0 -d
+ 
+17. Phân biệt HEAD và BRANCH
+HEAD trỏ đến nơi làm việc
+HEAD có thể trỏ đến nhánh hoặc trỏ đến commit
+BRANCH chỉ trỏ đến commit và đại diện cho một phiên bản dự án
+
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
