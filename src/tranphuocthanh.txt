@@ -1,0 +1,143 @@
+1. Viết chương trình/lệnh trong tập tin hoten.txt mô tả các bước thực hiện sơ đồ git tree sau đây tại local:
+
++ touch c1.txt
++ git add c1.txt
++ git commit -m "tao file c1.txt"
+
++ touch c2.txt
++ git add c2.txt
++ git commit -m "tao file c2.txt"
+
++ touch c3.txt
++ git add c3.txt
++ git commit -m "tao file c3.txt"
+
++ git branch feature master
++ git checkout feature
+
++ touch c4.txt
++ git add c4.txt
++ git commit -m "tao file c4.txt"
+
++ touch c5.txt
++ git add c5.txt
++ git commit -m "tao file c5.txt"
+
++ git branch bug master
++ git checkout bug
+
++ touch c6.txt
++ git add c6.txt
++ git commit -m "tao file c6.txt"
+
++ touch c7.txt
++ git add c7.txt
++ git commit -m "tao file c7.txt"
+
++ touch c8.txt
++ git add c8.txt
++ git commit -m "tao file c8.txt"
+
+2.Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+
++ git checkout feature
++ git merge bug
+
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+
++ git checkout bug
++ git rebase feature
+
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+
++ Giống nhau: đều dùng để gộp 2 nhánh lại với nhau
++ Khác nhau: 
+	- Merge:
+		+ khi gộp sẽ tạo ra commit mới. 
+		+ khi gộp sẽ gộp 2 commits mới nhất từ 2 nhánh và so sánh từ nhánh 		  cha chung gần nhất.
+		==> nên dùng khi gộp 2 nhánh chứa nhiều commits, chỉ fix conflicts 		1 lần.
+
+	- Rebase: 
+		+ khi gộp sẽ không tạo ra commit mới (số lượng).
+		+ gộp theo cơ chế replay your work on top of base branch
+		==> nên dùng khi push code lên github tránh bị xấu tree, có thể fix 		    conflicts nhiều lần
+
+5. Phân biệt git fetch và git clone
+
++ git fetch: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian.
++ git clone: tạo bản sao lấy hết các dữ liệu từ trên remote
+
+6. Phân biệt git fetch và git pull
+
++ git fetch: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian.
++ git pull: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian và gộp nhánh mà mình pull vào nhánh mà head đang trỏ đến ở local
+
+7. Phân biệt git pull và git pull --rebase
+
++ git pull: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian và gộp nhánh mà mình pull vào nhánh mà head đang trỏ đến ở local theo cơ chế merge
++ git pull --rebase: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian và gộp nhánh mà mình pull vào nhánh mà head đang trỏ đến ở local theo cơ chế rebase
+
+8. Git log dùng để làm gì
+
++ Dùng để show ra lịch sử thực hiện commit
+
+9. Git status dùng để làm gì
+
++ Dùng để show ra trạng thái của các file được quản lí bởi git
+
+10. Git add dùng để làm gì
+
++ Dùng để thêm file vào trạng thái staged để có thể commit
+
+11. Git commit dùng để làm gì
+
++ Dùng để đưa các file ở trạng thái staged vào thư mục lưu trữ của git
+
+12. Mô tả lệnh để tạo branch ở local
+
++ git branch new_branch_name exist_branch
++ git branch new_branch_name commit_hash
+
+13. Mô tả lệnh để xóa branch ở local
+
++ git branch -d/-D branch_name
+
+14. Mô tả lệnh để xóa branch ở remote
+
++ git push origin branch_remote -d
+
+15. Nhánh trung gian là gì
+
++ là nhánh liên kết giữa remote và local, có chức năng đồng bộ dữ liệu từ remote về local
+
+16. Detach HEAD là gì
+
++ head đang trỏ đến commit, commit này không có nhánh nào trỏ tới nên dễ bị mất code
+
+17. Phân biệt HEAD và BRANCH
+
++ Head: là con trỏ đặc biệt, có thể trỏ tới commit, branch
++ Branch: là con trỏ chỉ có thể trỏ tới branch khác 
+
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+
++ có 2 cách xóa commit
+vd + git reset --sort HEAD~i
+   + git reset --hard HEAD~i
+
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+
++ Untracked: là trạng thái mà khi 1 file được tạo ra chưa được quản lí bởi git
++ Staged: là trạng thái mà file có thể commit và được quản lí bởi git
++ Unmodified: là trạng thái sau khi commit và được quản lí bởi git
++ Modified: là trạng thái sau khi thay đổi nội dung từ file có trạng thái unmodified, đã được quản lí bởi git
+
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+
++ b1: xác định task đó làm từ version,branch nào của dự án
+vd: khi nhận task sum thì xác định version,branch của nó, giả sử version_1.0 và branch:todo-app-1.0
++ b2: fetch về, tạo branch từ branch của dự án 
+vd: git fetch --> git branch sum todo-app-1.0 --> git checkout sum
++ b3: code, add, commit sau đó push lên remote
+vd: touch sum.txt --> code --> git add sum.txt --> git commit -m "Add sum function" --> git push origin sum:todo-app-1.0
+
