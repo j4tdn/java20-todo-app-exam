@@ -26,13 +26,19 @@ Câu 1: Viết chương trình/lệnh trong tập tin hoten.txt mô tả các b�
 	git add . 
 	git commit -m "Tạo file c8.txt"
 
+--> ĐÚNG
+
 Câu 2: Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
 	git checkout feature
 	git merge bug
 
+--> ĐÚNG
+
 Câu 3: Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
 	git checkout bug
 	git rebase feature
+
+--> ĐÚNG
 
 Câu 4: Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
 	GIỐNG: 
@@ -48,48 +54,80 @@ Câu 4: Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên
 			+ Gộp từng commit của target branch vào commit mới nhất của base branch
 			+ Có thể fix conflict nhiều lần 
 
+--> ĐÚNG
+
 Câu 5: Phân biệt git fetch và git clone
 	_ "git fetch": đồng bộ code mới nhất từ remote branches về nhánh trung gian ở local
 	_ "git clone": sao chép toàn bộ .git ở remote repo về local repo
+
+--> ĐÚNG
 
 Câu 6: Phân biệt git fetch và git pull
 	_ "git fetch": đồng bộ code mới nhất từ remote branches về nhánh trung gian ở local
 	_ "git pull": gộp nhánh ở remote branch về nhánh của mình ở local
 
+--> ĐÚNG
+
 Câu 7: Phân biệt git pull và git pull --rebase
 	_ git pull = git fetch -> git merge
 	_ git pull --rebase = git fetch -> git rebase
 
+--> ĐÚNG
+
 Câu 8: Git log dùng để làm gì
 	Hiển thị các commit (chỉ hiển thị commit mà HEAD đang trỏ đến và những commit cha của nó) 
+
+--> ĐÚNG
+--> Thực tế thì còn phụ thuộc vào các option. Ví dụ --all thì sẽ show tất cả commit có branch trỏ đến
+--> Còn git log thì mặc định chính xác như em nói
 
 Câu 9: Git status dùng để làm gì
 	Hiển thị trạng thái của file (chỉ hiện file ở trạng thái Untracked, Modified, Staged)
 
+--> ĐÚNG
+
 Câu 10: Git add dùng để làm gì
 	Chuyển file từ trạng thái Untracked/Modified sang trạng thái Staged
 
+--> ĐÚNG
+
 Câu 11: Git commit dùng để làm gì
 	Chuyển file từ trạng thái Staged sang trạng thái Unmodified
+	+ Lưu thay đồi vào git repo
+
+--> ĐÚNG
 
 Câu 12: Mô tả lệnh để tạo branch ở local
 	_ Tạo branch từ commit hash:
 		git branch <new_branch_name> <commit_hash>
 	_ Tạo branch từ existed branch:
 		git branch <new_branch_name> <existed_branch_name>
+	_ Tạo branch từ HEAD
+	    git branch <new_branch_name>
+
+--> ĐÚNG
 
 Câu 13: Mô tả lệnh để xóa branch ở local
-	git branch -d <branch_name>
+	git branch -d -D <branch_name>
+
+--> ĐÚNG
+--> -D nếu commit mà branch cần xóa chưa thuộc branch nào
 
 Câu 14: Mô tả lệnh để xóa branch ở remote
 	git push <remote_alias> <remote_branch_name> -d
 
+--> ĐÚNG
+
 Câu 15: Nhánh trung gian là gì
-	_Nhánh trung gian là nhánh được đồng bộ từ nhánh ở remote repo về local repo
+	_Nhánh trung gian là nhánh được dùng để đồng bộ từ nhánh ở remote repo về local repo
 	_ Nhánh trung gian chỉ đọc, không thể đưa HEAD trỏ đến nhánh trung gian
+
+--> ĐÚNG
 
 Câu 16: Detach HEAD là gì
 	HEAD trỏ đến commit
+
+--> ĐÚNG
 
 Câu 17: Phân biệt HEAD và BRANCH
 	GIỐNG: đều là con trỏ
@@ -97,6 +135,8 @@ Câu 17: Phân biệt HEAD và BRANCH
 		_ HEAD có thể trỏ đến commit và branch, BRANCH chỉ trỏ đến commit
 		_ Khi HEAD trỏ đến BRANCH, BRANCH trỏ đến commit, khi commit 1 cái mới thì BRANCH sẽ nhảy lên
 		_ Khi HEAD và BRANCH đều trỏ đến commit, khi commit 1 cái mới thì HEAD sẽ nhảy lên
+
+--> ĐÚNG
 
 Câu 18: Có mấy cách để xóa commit, mô tả và cho ví dụ
 	Có 2 cách để xoá commit:
@@ -107,12 +147,16 @@ Câu 18: Có mấy cách để xóa commit, mô tả và cho ví dụ
 			git reset --hard HEAD~x
 				x: là số commit muốn xoá kể từ HEAD
 
+--> ĐÚNG
+
 Câu 19: Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
 	Có 4 trạng thái của file trong git:
 		_ Untracked: file chưa được theo dõi bởi git
 		_ Unmodified: file đã được theo dõi bởi git
 		_ Modified: file đã được theo dõi bởi git, và được chỉnh sửa nội dung
 		_ Staged: file ở trạng thái chờ để được commit
+
+--> ĐÚNG
 
 Câu 20: Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
 	_ Cần xác định file ở version nào của dự án -> Xác định được branch nào ở remote
@@ -121,5 +165,6 @@ Câu 20: Mô tả các bước cần thực hiện khi nhận 1 task từ dự �
 	_ git checkout <branch_name>
 	_ Tạo file -> code -> test -> add -> commit
 	_ git push <remote_alias> <local_branch_name>:<remote_branch_name>
-		  
+
+--> ĐÚNG GOOD
 		
