@@ -30,15 +30,23 @@ tại local
 	b27: git add c8.txt
 	b28: git commit -m "Commit 8"
 
+--> ĐÚNG
+
 2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
 
 	b1: git checkout bug
 	b2: git merge feature
 
+--> SAI
+--> Gộp vào feature là phải checkout vào feature em nhé
+
 3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
 
 	b1: git checkout feature
-	b2: git rebase bug 
+	b2: git rebase bug
+
+--> SAI
+--> Tương tự câu 2 --> cẩn thận
 
 4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
 	
@@ -65,6 +73,8 @@ tại local
 		ra commit merge, push lên lại làm xấu remote tree
 	===> Sử dụng rebase
 
+--> ĐÚNG
+
 5. Phân biệt git fetch và git clone
  	git fetch: 
       + yêu cầu: phải có local repo và remote repo --> liên kết/ánh xạ
@@ -73,25 +83,38 @@ tại local
  		      + LOCAL : ==> nothing
             ==> clone: copy/lấy toàn bộ (.git) ở remote về local
 
+--> ĐÚNG
+--> Nếu bổ sung thêm được lệnh thì quá tốt
+
 6. Phân biệt git fetch và git pull
 
 	git fetch và git pull đều là lấy code ở remote về local 
 	git pull là gộp code vừa lấy ở remote với code hiện tại ở local mà không cần thông qua lệnh git rebase
 
+--> Chưa rõ ràng
+
 8. Git log dùng để làm gì
 
 	git log : show version của dự án
 
+--> ĐÚNG, hiển thị lịch sử commit của dự án
+
 9. Git status dùng để làm gì
 	 git status : show thay đổi của mình, so sánh với nhánh tracking ở remote
+
+--> TẠM
 
 10. Git add dùng để làm gì
 	
 	git add:  add các file vào trạng thái staged
 
+--> ĐÚNG
+
 11. Git commit dùng để làm gì
 	
 	git commit: + khi thực hiện commit là GIT sẽ commit những file mình muốn lưu/ đưa vào version
+
+--> ĐÚNG
 
 12. Mô tả lệnh để tạo branch ở local
 
@@ -104,13 +127,20 @@ tại local
             --> git branch new_branch_name existed_branch_name
             * sẽ tạo branch tên là new_branch_name trỏ đến commit abcxy
 
+--> ĐÚNG
+
 13. Mô tả lệnh để xóa branch ở local
 
 	git branch -D branch_name
 
+--> ĐÚNG
+
 14. Mô tả lệnh để xóa branch ở remote
 
 	git push origin --delete branch_name_remote
+	git push origin -d branch_name_remote
+
+--> Cả 2 đều ok
 
 15. Nhánh trung gian là gì
 
@@ -119,9 +149,14 @@ tại local
 	nhánh trung gian: readable (chỉ xem), ko thể đưa HEAD qua nhánh trung gian
                                  --> đồng bộ code mới nhất ở remote về local
 
+--> ĐÚNG
+
 16. Detach HEAD là gì
 
  	detach HEAD là khi head không ở một branch cụ thể nào.
+	Hoặc là HEAD trỏ trực tiếp đến commit
+
+--> ĐÚNG
 
 17. Phân biệt HEAD và BRANCH
 
@@ -129,15 +164,22 @@ tại local
 	
 	BRANCH: BRANCH là một nhánh hay thường được gọi là 1 version của dự án 
 
+--> ĐÚNG
+
 19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
 
-	có 4 trạng thái trong file git: 1. Untracked
+	có 4 trạng thái trong file git: 
+	1. Untracked
 	2. unmodified
 	3.modified
 	4.staged
+
+--> ĐÚNG
 
 20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
 
  	B1: mình nhận task xác nhận task thuộc version nào của dự án 
 	b2: nếu ở local đã có local repo thì fetch dự án của task đó về và làm dự án
-	
+
+--> Chưa rõ ràng
+--> Phần này quan trọng e nhớ xem lại
