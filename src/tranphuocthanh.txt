@@ -38,15 +38,21 @@
 + git add c8.txt
 + git commit -m "tao file c8.txt"
 
+--> ĐÚNG
+
 2.Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
 
 + git checkout feature
 + git merge bug
 
+--> ĐÚNG
+
 3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
 
 + git checkout bug
 + git rebase feature
+
+--> ĐÚNG
 
 4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
 
@@ -62,62 +68,93 @@
 		+ gộp theo cơ chế replay your work on top of base branch
 		==> nên dùng khi push code lên github tránh bị xấu tree, có thể fix 		    conflicts nhiều lần
 
+--> ĐÚNG
+
 5. Phân biệt git fetch và git clone
 
 + git fetch: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian.
+             a bổ sung 1 xíu là chỉ fetch được khi local repo đã mapping với remote remote
+			 git remote add <remote_name> <remove_url>
+			 git remote -v
 + git clone: tạo bản sao lấy hết các dữ liệu từ trên remote
+
+--> ĐÚNG
 
 6. Phân biệt git fetch và git pull
 
 + git fetch: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian.
 + git pull: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian và gộp nhánh mà mình pull vào nhánh mà head đang trỏ đến ở local
 
+--> ĐÚNG
+
 7. Phân biệt git pull và git pull --rebase
 
 + git pull: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian và gộp nhánh mà mình pull vào nhánh mà head đang trỏ đến ở local theo cơ chế merge
 + git pull --rebase: đồng bộ các dữ liệu từ remote về máy thông qua các nhánh trung gian và gộp nhánh mà mình pull vào nhánh mà head đang trỏ đến ở local theo cơ chế rebase
 
+--> ĐÚNG
+
 8. Git log dùng để làm gì
 
 + Dùng để show ra lịch sử thực hiện commit
 
+--> ĐÚNG
+
 9. Git status dùng để làm gì
 
-+ Dùng để show ra trạng thái của các file được quản lí bởi git
++ Dùng để show ra trạng thái của các file(untracked, modified) được quản lí bởi git
+
+--> ĐÚNG
 
 10. Git add dùng để làm gì
 
 + Dùng để thêm file vào trạng thái staged để có thể commit
 
+--> ĐÚNG
+
 11. Git commit dùng để làm gì
 
-+ Dùng để đưa các file ở trạng thái staged vào thư mục lưu trữ của git
++ Dùng để đưa các file ở trạng thái staged vào thư mục lưu trữ của git(unmodified)
+
+--> ĐÚNG
 
 12. Mô tả lệnh để tạo branch ở local
 
 + git branch new_branch_name exist_branch
 + git branch new_branch_name commit_hash
 
+--> ĐÚNG
+
 13. Mô tả lệnh để xóa branch ở local
 
 + git branch -d/-D branch_name
+
+--> ĐÚNG
 
 14. Mô tả lệnh để xóa branch ở remote
 
 + git push origin branch_remote -d
 
+--> ĐÚNG
+
 15. Nhánh trung gian là gì
 
 + là nhánh liên kết giữa remote và local, có chức năng đồng bộ dữ liệu từ remote về local
+
+--> ĐÚNG
 
 16. Detach HEAD là gì
 
 + head đang trỏ đến commit, commit này không có nhánh nào trỏ tới nên dễ bị mất code
 
+--> ĐÚNG
+
 17. Phân biệt HEAD và BRANCH
 
 + Head: là con trỏ đặc biệt, có thể trỏ tới commit, branch
 + Branch: là con trỏ chỉ có thể trỏ tới branch khác 
+
+--> ĐÚNG
 
 18. Có mấy cách để xóa commit, mô tả và cho ví dụ
 
@@ -125,12 +162,16 @@
 vd + git reset --sort HEAD~i
    + git reset --hard HEAD~i
 
+--> ĐÚNG
+
 19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
 
 + Untracked: là trạng thái mà khi 1 file được tạo ra chưa được quản lí bởi git
 + Staged: là trạng thái mà file có thể commit và được quản lí bởi git
 + Unmodified: là trạng thái sau khi commit và được quản lí bởi git
 + Modified: là trạng thái sau khi thay đổi nội dung từ file có trạng thái unmodified, đã được quản lí bởi git
+
+--> ĐÚNG
 
 20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
 
