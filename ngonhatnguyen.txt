@@ -37,12 +37,21 @@ tại local.
 	touch c8.txt
 	git add c8.txt
 	git commit -m "Add file c8.txt"
+
+--> ĐÚNG
+
 2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
 	git checkout feature
 	git merge bug
+
+--> ĐÚNG
+
 3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
 	git checkout bug
 	git rebase feature
+
+--> ĐÚNG
+
 4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
 	- Giống nhau: + Gộp nhánh.
 				  + Kết quả trường hợp gộp nhánh trên 1 đường thẳng giống nhau.
@@ -51,41 +60,92 @@ tại local.
 					  Khi bị comflicts chỉ fix 1 lần
 		+ git rebase: Không cần tạo commit mới
 					  Khi bị comflicts có thể cần phải fix nhiều lần
+
+--> GẦN ...
+--> E nên phân biệt khi nào sử dụng merge khi nào sử dụng rebase nữa thì sẽ tốt hơn
+VD: merge sẽ dùng khi gộp 2 nhánh của dự án có nhiều commit để
+    + lưu lịch sử merge nhánh
+	+ tránh conflicts nhiều lần
+    rebae sẽ dùng khi push code từ local lên remote và bị reject thì sẽ fetch + rebase để gộp code bị thiếu ở remote về nhánh mình
+	+ tránh tạo commit merge xấu lịch sử
+
 5. Phân biệt git fetch và git clone
 	- git fetch:	dùng để lấy dữ liệu trên remote về khi đã ánh xạ
 	- git clone:	dùng khi trên local chưa ánh xạ với remote, khi dùng sẽ đồng thời lấy dữ liệu trên remote về máy local.
+
+--> ĐÚNG
+
 6. Phân biệt git fetch và git pull
 	git fetch: + lấy dữ liệu mới nhất từ remote repos
 	git pull:  + lấy dữ liệu mới nhất từ remote repos và merge nhánh vào nhánh HEAD đang trỏ đến
+
+--> ĐÚNG
+
 7. Phân biệt git pull và git pull --rebase
 	git pull:  + lấy dữ liệu mới nhất từ remote repos và gộp nhánh bằng lệnh merge nhánh vào nhánh HEAD đang trỏ đến
 	git pull --rebase:  + lấy dữ liệu mới nhất từ remote repos và gộp nhánh bằng lệnh rebase nhánh vào nhánh HEAD đang trỏ đến
+
+--> ĐÚNG
+
 8. Git log dùng để làm gì
-	git log dùng để hiển thị các commit (git version) của nhánh (version) hiện tại mà HEAD đang trỏ đến.
+	git log dùng để hiển thị các commit (git version) của nhánh (version) hiện tại mà HEAD đang trỏ đến và commit cha của nó
+
+--> ĐÚNG
+
 9. Git status dùng để làm gì
-	git status dùng để xem trạng thái hiện tại của các file trong thư mục làm việc
+	git status dùng để xem trạng thái(untracked, modified) hiện tại của các file trong thư mục làm việc
+
+--> ĐÚNG
+
 10. Git add dùng để làm gì
 	dùng để add các file ở trạng thái untracked và modified --> trạng thái stage chuẩn bị commit.
+
+--> ĐÚNG
+
 11. Git commit dùng để làm gì
 	dùng để quản lý các file sau khi add trong trạng thái stage
+
+--> ĐÚNG
+
 12. Mô tả lệnh để tạo branch ở local
 	git branch new_branch old_branch
 	git branch new_branch hash_code
+	git branch new_branch --> lệnh này dùng để tạo branch từ hiện tại HEAD đang đứng
+
+--> ĐÚNG
+
 13. Mô tả lệnh để xóa branch ở local
-	Nếu HEAD đang trỏ đến branch muốn xóa --> checkout HEAD đến 1 branch khác
+	Nếu HEAD đang trỏ đến branch muốn xóa --> checkout HEAD đến 1 branch khác --> GOOD
 	 -> git branch -d branch_name
+
+--> ĐÚNG
+--> Hoặc dùng -D nên branch cần xóa đang trỏ đến commit(s) mà commit này chưa được branch nào trỏ đến cả
+
 14. Mô tả lệnh để xóa branch ở remote
 	  git push origin ten_nhanh -d
+
+--> ĐÚNG
+
 15. Nhánh trung gian là gì
 	  là nhánh ở máy local sau khi fetch từ remote và đại diện cho nhánh trên remote
 	  không được trỏ đến nhánh trung gian
+
+--> ĐÚNG
+
 16. Detach HEAD là gì
-	   Là HEAD đang trỏ đến 1 commit mà commit đó không được nhánh nào quản lý.
+	Là HEAD đang trỏ đến 1 commit mà commit đó không được nhánh nào quản lý.
+	Là trạng thái mà khi HEAD trỏ trực tiếp đến commit (còn commit có được branch nào trỏ đến ko quan trọng e nha)
+
+--> ĐÚNG 50%
+
 17. Phân biệt HEAD và BRANCH
 	- HEAD:		+ Là con trỏ git có thể trỏ đến 1 commit hay 1 branch nào đó
 				+ HEAD --> branch --> commit (khi HEAD nhảy sang commit mới --> branch cũng sẽ nhảy lên trỏ vào commit mới đó)
 	- BRANCH:	+ Là con trỏ git chỉ trỏ đến 1 commit nào đó
-				+ Đại diện cho 1 project version
+				+ Đại diện cho 1 project version(BRANCH đại diện cho phiên bản của dự án là remote branch e nhé)
+
+--> ĐÚNG
+
 18. Có mấy cách để xóa commit, mô tả và cho ví dụ
 	Có 2 cách để xóa commit:
 		Khi xóa 1 commit thì commit đó không phải là commit cha của bất kì 1 commit nào khác
@@ -94,12 +154,18 @@ tại local.
 		C2: Xóa commit không xóa nội dung:
 			git reset --soft HEAD~x
 		với x là số commit tính từ HEAD trở về trước
+
+--> ĐÚNG
+
 19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
 	- Có 4 trạng thái của file trong git:
 		+ untracked  : trạng thái khi file chưa được commit lần nào (hay chưa được git quản lý)
 		+ stage      : trạng thái sau khi file được add, khi file ở trạng thái này có thể được commit
 		+ modified   : trạng thái khi file đã được git quản lý trước đó và mới được chỉnh sửa
 		+ unmodified : trạng thái khi file đã được commit
+
+--> ĐÚNG 50%
+
 20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
 	B1: git clone url (nếu chưa ánh xạ remote và local)
    hoặc git fetch
@@ -110,3 +176,5 @@ tại local.
 	B4: git add file --> git commit -m "Add task"
 	B5: git push origin nhánh_tại_local:nhánh_version
 	  VD: git push origin task_sum3:todo-app-1.0
+
+--> ĐÚNG
