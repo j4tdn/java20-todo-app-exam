@@ -47,17 +47,28 @@ notepad c8.txt
 git add c8.txt
 git commit -m "Add c8.txt file"
 
+--> Dùng lệnh notepad cX.txt làm gì vậy em ???
+touch file_name --> Tạo tên file, mặc địch trạng thái untracked
+git add file_name --> Đưa vào staged
+git commit -m 'message ...' --> Lưu vào GIT REPO
+
 2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
 git status
 mo file va sua
 git add ...
 git commit -m "Gop ... vao ..."
 
+--> SAI
+--> Merge mà em làm gì vậy Loan
+
 3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
 git status
 mo file va sua
 git add ...
-git rebase --continue
+git rebase --continue ???
+
+--> SAI
+--> Merge mà em làm gì vậy Loan
 
 4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
 Giống nhau: Được kết quả như nhau
@@ -65,25 +76,41 @@ Khác nhau:
 + merge: 1 lần gộp
 + rebase: gộp nhiều lần
 
+--> Chưa rõ ràng
+
 5. Phân biệt git fetch và git clone
-git fetch: đã cập nhật lại version mới nhất 
+git fetch: đã cập nhật lại version mới nhất về nhánh trung gian em nha
 git clone: copy lấy toàn bộ .git ở remote về local
 
+--> Chưa rõ ràng
+
 9. Git status dùng để làm gì
-Dùng để xem trang thái của các commit 
+Dùng để xem trang thái của các commit
+
+--> ĐÚNG
 
 11. Git commit dùng để làm gì
 Dùng để thêm một chức năng cho version
 
+--> ĐÚNG
+
 12. Mô tả lệnh để tạo branch ở local
 git branch new_branch from_branch
+git branch new_branch commit_hash
+git branch new_branch --> lệnh này sẽ tạo branch mới từ HEAD
+
+--> Chưa đầy đủ
 
 14. Mô tả lệnh để xóa branch ở remote
 git push origin todo-appp-1.0 -d
- 
+
+--> ĐÚNG
+
 17. Phân biệt HEAD và BRANCH
 HEAD trỏ đến nơi làm việc
 HEAD có thể trỏ đến nhánh hoặc trỏ đến commit
-BRANCH chỉ trỏ đến commit và đại diện cho một phiên bản dự án
+BRANCH chỉ trỏ đến commit và đại diện cho một phiên bản dự án --> Branch đại diện cho phiên bản dự án là remote branch em nha
+
+--> ĐÚNG
 
 19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
