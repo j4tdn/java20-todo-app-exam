@@ -1,0 +1,71 @@
+b1: touch c1
+b2: touch c2
+b3: touch c3
+b4: git add c1
+b5: git commit -m "Add c1"
+b6: git add c2
+b7: git commit -m "Add c2"
+B8: git add c3 
+b9: git commit -m "Add c3"
+b10:git checkout -b feature master
+b11:touch c4
+b12:touch c5
+b13:git add c4
+b14:git commmit -m "Add c4"
+b15:git add c5
+b16:git commit -m "Add c5"
+b17:git checkout -b bug master
+b18:touch c6
+b19:touch c7
+b20:touch c8
+b21:git add c6
+b22:git commit -m "Add c6"
+b23:git add c7
+b24:git commit -m "Add c7"
+b25:git add c8
+b26:git commit -m "Add c8"
+b27:git checkout feature
+b28:git merge bug
+
+
+git checkout feature --> git merge bug
+git checkout bug --> git rebase feature
+
+4: giống nhau đèu là lệnh hợp nhất các nhánh với nhau
+   khác nhau merge thường dùng gộp nhiều commit thêm 1 commit  
+     rebase để gộp ít commit hợp nhất thành 1 dòng không thêm cmit
+5:fetch dùng để đồng bộ những dữ liệu ở remote repository
+  còn clone là dùng dể sao chép rồi tải về local 
+6:fetch dùng dể đồng bộ
+  pull hợp nhát và  dồng bộ
+7:pull hợp nhát và  dồng bộ
+  pull --rebase (fetch first)
+8: git log dùng để tra lịch sử thời gian commit
+9: git status xem trạng thái của file
+10:git add khi  chuyển đổi sang trạng thái commit
+11:git commit dùng khi  hoàn thành chúc năng sang chức năng khác
+12:tạo branch :git branch tên và branch nhắm đên
+   	       git branch tên và mã commit
+13: xóa branch git branch tên  -D
+14: xóa nhánh remote git branch -d
+15: nhánh trung gian là nhánh lưu trữ khi được đồng bộ và head 
+    không trỏ đến được
+16: detachhead là khi trỏ đến commit
+17: head dùng dể trỏ đến các nhánh và commit head sẽ nhảy khi head trỏ dến branch và branch trỏ dến commit mới tạo  
+    branch tượng trưng cho các version đự án và không trỏ đến các commit
+18: cách xóa commit rm / reset --soft head~1 /reset --hard head~1
+19: gồm stage / untracked / unmodified /modified
+20: vào task dự án cần nhận remote add link  dự án
+đồng bộ xong rồi làm dự án
+làm xong dự án thì kiểm tra xem có lỗi gì không rồi đẩy lên
+ví dụ
+25 làm con số kỳ quặc 123.txt
+git remote add origin https
+git fetch 
+touch 123.txt
+git add 123.txt
+git commit -m "123.txt"
+....
+git push origin head:nhánh
+sửa failed git  
+git push origin head:nhánh
